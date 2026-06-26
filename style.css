@@ -1,0 +1,103 @@
+:root {
+    --cor-fundo: #fdfaf6;
+    --cor-principal: #6f4e37;
+    --cor-secundaria: #3c2f2f;
+    --cor-texto-claro: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-secundaria);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--cor-principal);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estrutura do efeito Flashcard adaptado para o menu */
+.card-item {
+    background-color: transparent;
+    width: 280px;
+    height: 380px;
+    perspective: 1000px; /* Cria o efeito 3D */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.card-item:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o lado oposto */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-front {
+    background-color: #fff;
+}
+
+.card-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.preco {
+    font-weight: bold;
+    color: var(--cor-principal);
+    font-size: 1.2rem;
+}
+
+.card-back {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    transform: rotateY(180deg);
+}
+
+.tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tag-alergeno, .tag-vege, .tag-gluten {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
